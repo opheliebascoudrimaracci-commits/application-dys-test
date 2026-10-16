@@ -16,8 +16,11 @@ def prepare_storage():
         return
     saved = _component(mode='load', key='dys_browser_load', default=None)
     if saved is None:
-        st.info('Chargement des profils enregistrés sur cet appareil…')
-        st.stop()
+    st.warning(
+        "Le stockage local ne répond pas encore. "
+        "Vérifie que le navigateur autorise les données de ce site."
+    )
+    st.stop()
     if isinstance(saved,str) and saved.startswith('STORAGE_ERROR:'):
         st.error('Le navigateur bloque le stockage local. Activez le stockage pour ce site ou utilisez un autre navigateur.')
         st.stop()
