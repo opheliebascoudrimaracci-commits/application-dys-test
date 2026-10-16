@@ -6,7 +6,17 @@ st.set_page_config(
 )
 
 st.title("Application Dys")
-st.success("Le démarrage de Streamlit fonctionne.")
+st.success("Streamlit fonctionne.")
 
-if st.button("Ouvrir les modules"):
-    st.info("Test de navigation réussi.")
+st.subheader("Test du stockage local")
+
+try:
+    from services.local_storage import prepare_storage
+    st.success("Le module de stockage est importé correctement.")
+
+    prepare_storage()
+
+    st.success("Le stockage local est initialisé.")
+except Exception as e:
+    st.error(f"Erreur de stockage : {e}")
+    st.exception(e)
