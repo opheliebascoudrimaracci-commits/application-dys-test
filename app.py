@@ -1,9 +1,12 @@
-"""Point d’entrée Application Dys."""
 import streamlit as st
-st.set_page_config(page_title="Application Dys", page_icon="💜", layout="wide")
-try:
-    import application_mathis
-except Exception:
-    import traceback
-    st.error("Erreur au démarrage d’Application Dys")
-    st.code(traceback.format_exc())
+
+st.set_page_config(
+    page_title="Application Dys — Test",
+    layout="wide"
+)
+
+st.title("Application Dys")
+st.success("Le démarrage de Streamlit fonctionne.")
+
+if st.button("Ouvrir les modules"):
+    st.info("Test de navigation réussi.")
